@@ -23,7 +23,7 @@ const restaurantSchema = new Schema({
         unique:[true , 'Phone number already exists'],
     },    
     nRating:{ type: Number, min: 1, max: 5,default: 0}, 
-    oMenu: [menuItemSchema],
+    aMenu: [menuItemSchema],
     sCuisine: { type: String }, //Indian, Chinese, Italian
 
 })
