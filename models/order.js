@@ -17,10 +17,11 @@ const orderSchema = new Schema({
     iDriverId: { type: Schema.Types.ObjectId, ref: 'Driver' }, 
     eOrderStatus: { type: String, enum: aOrderStatus, default: 'pending' },
     oDeliveryAddress: { 
-        sState:{ type: String, required: true },
-        sCity:{ type: String, required: true },
-        sStreet:{ type: String, required: true },
-        sCountry:{ type: String, required: true },},
+        sState:{ type: String, required: true , trim: true },
+        sCity:{ type: String, required: true ,trim: true },
+        sStreet:{ type: String, required: true, trim: true },
+        sCountry:{ type: String, required: true, trim:true }
+    },
     
 },
 {

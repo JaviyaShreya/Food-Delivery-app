@@ -21,12 +21,9 @@ sPassword: {
     required: true,
 },
 sPhone: {
-        type: String, 
-        required:true, 
-        validate: function(value){
-            return isValidPhoneNumber(value)
-        },
-        message : "Please enter a valid phone number with country code"
+    type: String, 
+    required:true, 
+    unique:[true , 'Phone number already exists'],
 },
 oAddress: {
    sStreet:{type: String, required: true, trim: true},

@@ -20,10 +20,7 @@ const restaurantSchema = new Schema({
     sPhone: {
         type: String, 
         required:true, 
-        validate: function(value){
-            return isValidPhoneNumber(value)
-        },
-        message : "Please enter a valid phone number with country code"
+        unique:[true , 'Phone number already exists'],
     },    
     nRating:{ type: Number, min: 1, max: 5,default: 0}, 
     oMenu: [menuItemSchema],

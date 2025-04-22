@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { isValidPhoneNumber } = require('libphonenumber-js');
 const { aDriverStatus } = require('../utils/enum'); 
 
 const driverSchema = new Schema({
@@ -14,10 +13,7 @@ const driverSchema = new Schema({
     sPhone: {
         type: String, 
         required:true, 
-        validate: function(value){
-            return isValidPhoneNumber(value)
-        },
-        message : "Please enter a valid phone number with country code"
+        unique:[true , 'Phone number already exists'],
     },
     sVehicleNumber: {type: String, required:true, unique:[true , 'Vehicle number already exists']},
     eDriverstatus: {type: String, enum: aDriverStatus, default: 'active'},

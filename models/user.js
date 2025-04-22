@@ -3,15 +3,12 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
     sName: {type: String, required: true, trim: true},
-    sEmail: {type: String,required: true, lowecase:true,unique: [true, 'Email already exists']},
+    sEmail: {type: String,required: true, lowercase:true,unique: [true, 'Email already exists']},
     sPassword: {type: String, required: true},
     sPhone: {
         type: String, 
         required:true, 
-        validate: function(value){
-            return isValidPhoneNumber(value)
-        },
-        message : "Please enter a valid phone number with country code"
+        unique:[true , 'Phone number already exists'],
     },    
     oAddress: {
         sStreet: {type: String, required: true, trim: true},
